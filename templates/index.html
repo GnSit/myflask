@@ -1,0 +1,12 @@
+{% extends 'runko.html' %}
+{% block body %}
+
+    {% block content %}
+        <h1 class="otsikko">
+            <div><img class="logoimg" src="{{ url_for('static',filename='logo1.png') }}" alt="logo" width="80" height="80"><a class="logo" href="/">LoGo</a></div> 
+            {{ terv }}
+            <div class="rabit"><a href="register">Rekisteröidy</a></div>
+        </h1>
+    {% endblock content %}
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'runko.html' %}
+
+{% block body %}
+{% block content %}
+    <h1 class="otsikko">
+        <div><img class="logoimg" src="{{ url_for('static',filename='logo1.png') }}" alt="logo" width="80" height="80"><a class="logo" href="/">LoGo</a></div> 
+        {{ terv }}
+        <div class="rabit">
+            <a href="/">Etusivu</a>
+        </div>
+    </h1>
+{% endblock %}
+{% block forms %}
+    <form id="regForm" action="/register" method="POST" autocomplete="off">
+        <fieldset>
+            <legend> Tiedot </legend>
+            <input type="text" name="fname" autofocus placeholder="Etunimi">
+            <input type="text" name="lname" placeholder="Sukunimi">
+            <input type="email" name="email" placeholder="Sähköposti">
+            <input type="password" name="pwd" placeholder="Salasana">
+        </fieldset>    
+        <fieldset>
+            <legend> Sukupuoli </legend>
+            {% for sukupuoli in sukupuoli %}
+                <input class="rdiobtn" name="sukupuoli" type="radio" value="{{ sukupuoli }}"> {{ sukupuoli }}
+            {% endfor %}
+        </fieldset>
+        <fieldset>
+            <legend> Harrastukset </legend>
+            {% for harrastus in harrastukset %}
+                <input class="chkbtn" name="harrastus" type="checkbox" value="{{ harrastus }}"> {{ harrastus }}
+            {% endfor %}
+        </fieldset>
+        <input class="laheta" name="submit" type="submit" value="Lähetä">
+    </form>
+<br><hr>
+<h3>{{ conn }}</h3>
+{{ paiva }}
+{% endblock %}
+
+{% endblock %}
